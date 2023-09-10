@@ -4,7 +4,7 @@ import ShopProductCard from './ShopProductCard';
 
 const SkeletonLoad = (
   <>
-    {[...Array(12)].map((_, index) => (
+    {[...Array(3)].map((_, index) => (
       <Grid item xs={12} sm={6} md={3} key={index}>
         <Skeleton variant="rectangular" width="100%" sx={{ paddingTop: '115%', borderRadius: 2 }} />
       </Grid>

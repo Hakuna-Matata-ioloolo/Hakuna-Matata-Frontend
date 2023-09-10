@@ -16,30 +16,25 @@ const slice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    // START LOADING
     startLoading(state) {
       state.isLoading = true;
     },
 
-    // HAS ERROR
     hasError(state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
 
-    // GET PRODUCTS
     getProductsSuccess(state, action) {
       state.isLoading = false;
       state.products = action.payload;
     },
 
-    // GET PRODUCT
     getProductSuccess(state, action) {
       state.isLoading = false;
       state.product = action.payload;
     },
 
-    // CHECKOUT
     getCart(state, action) {
       state.checkout.cart = action.payload;
     },
@@ -103,10 +98,8 @@ const slice = createSlice({
   }
 });
 
-// Reducer
 export default slice.reducer;
 
-// Actions
 export const { getCart, addCart, resetCart, deleteCart, createBilling, increaseQuantity, decreaseQuantity } =
   slice.actions;
 

@@ -20,21 +20,6 @@ const PAYMENT_OPTIONS = [
   {
     value: 'account',
     title: '무통장 입금'
-  },
-  {
-    value: 'toss_pay',
-    title: '토스페이',
-    icon: '/static/icons/payments/toss.svg'
-  },
-  {
-    value: 'naver_pay',
-    title: '네이버페이',
-    icon: '/static/icons/payments/naver.svg'
-  },
-  {
-    value: 'kakao_pay',
-    title: '카카오페이',
-    icon: '/static/icons/payments/kakao.svg'
   }
 ];
 
@@ -94,39 +79,6 @@ export default function CheckoutPayment() {
             orderName: `${allProduct[cart[0].id].name}${cnt > 1 ? ` 외 ${cnt - 1}건` : ''}`,
             customerName: user.name,
             maxCardInstallmentPlan: 0,
-            successUrl: `${host}/payment/success`,
-            failUrl: `${host}/payment/fail`
-          });
-        } else if (values.payment === 'toss_pay') {
-          await tossPayments.requestPayment('카드', {
-            amount: price,
-            orderId: billingId,
-            orderName: `${allProduct[cart[0].id].name}${cnt > 1 ? ` 외 ${cnt - 1}건` : ''}`,
-            customerName: user.name,
-            flowMode: 'DIRECT',
-            easyPay: '토스페이',
-            successUrl: `${host}/payment/success`,
-            failUrl: `${host}/payment/fail`
-          });
-        } else if (values.payment === 'naver_pay') {
-          await tossPayments.requestPayment('카드', {
-            amount: price,
-            orderId: billingId,
-            orderName: `${allProduct[cart[0].id].name}${cnt > 1 ? ` 외 ${cnt - 1}건` : ''}`,
-            customerName: user.name,
-            flowMode: 'DIRECT',
-            easyPay: '네이버페이',
-            successUrl: `${host}/payment/success`,
-            failUrl: `${host}/payment/fail`
-          });
-        } else if (values.payment === 'kakao_pay') {
-          await tossPayments.requestPayment('카드', {
-            amount: price,
-            orderId: billingId,
-            orderName: `${allProduct[cart[0].id].name}${cnt > 1 ? ` 외 ${cnt - 1}건` : ''}`,
-            customerName: user.name,
-            flowMode: 'DIRECT',
-            easyPay: '카카오페이',
             successUrl: `${host}/payment/success`,
             failUrl: `${host}/payment/fail`
           });

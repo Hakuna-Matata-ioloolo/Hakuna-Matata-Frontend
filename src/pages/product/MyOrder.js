@@ -24,6 +24,7 @@ import LoadingScreen from '../../components/LoadingScreen';
 import { fCurrency } from '../../utils/formatNumber';
 import { MHidden } from '../../components/@material-extend';
 import { PATH_APP } from '../../routes/paths';
+import EmptyContent from '../../components/EmptyContent';
 
 const ThumbImgStyle = styled('img')(({ theme }) => ({
   width: 64,
@@ -41,7 +42,7 @@ export default function OrderList() {
   useEffect(() => {
     (async () => {
       const response = (await axios.get('/api/order')).data;
-
+      console.log(response);
       setOrders(response);
       setLoad(true);
     })();
@@ -67,6 +68,10 @@ export default function OrderList() {
                         </TableRow>
                       </TableHead>
                       <TableBody>
+                        {orders.length === 0 && (
+                          <EmptyContent title="내 주문이 없습니다." img="/static/illustrations/empty_cart.svg" />
+                        )}
+
                         {orders.map(({ _id, name, products, price, status }) => (
                           <TableRow key={_id}>
                             <TableCell>

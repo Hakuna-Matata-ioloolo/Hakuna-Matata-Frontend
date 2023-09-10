@@ -101,14 +101,9 @@ export default function Sidebar({ isOpenSidebar, onCloseSidebar }) {
               </Typography>
             </Stack>
             <Typography variant="body2" sx={{ fontSize: 12, color: 'text.secondary' }}>
-              손대현, 박산하, 최지훈, 이승문
-              <br />
-              권민섭, 신승현, 이승문, 승민, 최용훈
-              <br />
-              <br />
               사업자등록번호: 000-00-00000
               <br />
-              통신판매업신고:2022-충북-0000
+              통신판매업신고:2022-XX-0000
               <br />
               <br />
             </Typography>

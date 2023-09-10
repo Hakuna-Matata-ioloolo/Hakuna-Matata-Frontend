@@ -11,18 +11,15 @@ const slice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    // START LOADING
     startLoading(state) {
       state.isLoading = true;
     },
 
-    // HAS ERROR
     hasError(state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
 
-    // GET MANAGE USERS
     getUserListSuccess(state, action) {
       state.isLoading = false;
       state.userList = action.payload;
@@ -30,10 +27,7 @@ const slice = createSlice({
   }
 });
 
-// Reducer
 export default slice.reducer;
-
-// ----------------------------------------------------------------------
 
 export function getUserList() {
   return async (dispatch) => {

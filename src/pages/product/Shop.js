@@ -21,7 +21,8 @@ export default function Shop() {
       <Container maxWidth="lg">
         <HeaderBreadcrumbs heading="상점" links={[{ name: '하쿠나 마타타', href: PATH_APP.root }, { name: '상점' }]} />
 
-        <ShopProductList products={products} />
+        {products.length > 0 ? <ShopProductList products={products} /> : <ShopProductList products={[]} isLoad />}
+
         <CartWidget />
       </Container>
     </Page>

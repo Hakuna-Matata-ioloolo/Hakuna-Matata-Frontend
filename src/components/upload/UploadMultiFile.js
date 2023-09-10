@@ -167,7 +167,6 @@ export default function UploadMultiFile({ error, showPreview = false, files, onR
           <Button onClick={onRemoveAll} sx={{ mr: 1.5 }}>
             모두 삭제
           </Button>
-          제
         </Stack>
       )}
     </Box>

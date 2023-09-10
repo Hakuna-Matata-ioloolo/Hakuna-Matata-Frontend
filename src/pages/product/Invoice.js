@@ -33,6 +33,7 @@ export default function Invoice() {
     (async () => {
       const response = (await axios.post('/api/order', { orderId: id })).data;
 
+      console.log(response);
       setInvoice(response);
       setLoad(true);
     })();
@@ -92,46 +93,6 @@ export default function Invoice() {
                     학번: {invoice.user.grade}학년 {invoice.user.clazz}반 {invoice.user.stdId}번
                   </Typography>
                   <Typography variant="body2">전화번호: {invoice.user.phoneNumber}</Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={6} sx={{ mb: 5 }}>
-                  <Typography paragraph variant="overline" sx={{ color: 'text.disabled' }}>
-                    결제 정보
-                  </Typography>
-                  {invoice.payment.method === '카드' && (
-                    <>
-                      <Typography variant="body2">결제수단: {invoice.payment.method}</Typography>
-                      <Typography variant="body2">
-                        카드번호: {invoice.payment.company} {invoice.payment.number}
-                      </Typography>
-                    </>
-                  )}
-
-                  {invoice.payment.method === '간편결제' && (
-                    <>
-                      <Typography variant="body2">
-                        결제수단: {invoice.payment.method} ({invoice.payment.provider})
-                      </Typography>
-                    </>
-                  )}
-
-                  {invoice.payment.method === '가상계좌' && (
-                    <>
-                      <Typography variant="body2">결제수단: {invoice.payment.method}</Typography>
-                      {invoice.status === 'WAITING_FOR_DEPOSIT' && (
-                        <>
-                          <Typography variant="body2">
-                            계좌번호: {invoice.payment.bank} {invoice.payment.accountNumber} (예금주:{' '}
-                            {invoice.payment.customerName})
-                          </Typography>
-
-                          <Typography variant="body2">
-                            입금기한: {format(new Date(invoice.payment.dueDate), 'yyyy년 MM월 dd일 HH시 mm분 ss초')}
-                          </Typography>
-                        </>
-                      )}
-                    </>
-                  )}
                 </Grid>
               </Grid>
 
